@@ -1,0 +1,57 @@
+import React, { useState } from "react";
+
+function Form2() {
+    const [data, setdata] = useState({
+        name: "",
+        rollno: "",
+        gender: "",
+        city: "",
+        phone: ""
+    });
+
+    function formSubmit(data) {
+        data.preventDefault()
+
+        console.log("sucess......", data);
+    }
+
+    return (
+        <>
+            <form onSubmit={formSubmit}>
+                Name:
+                <input
+                    type="text"
+                    onChange={(data) => setdata({ ...data, name: data.target.value })}
+                />
+                Rollno:
+                <input
+                    type="text"
+                    onChange={(data) => setdata({ ...data, rollno: data.target.value })}
+                />
+                City:
+                <input
+                    type="text"
+                    onChange={(data) => setdata({ ...data, city: data.target.value })}
+                />
+                Gender:
+                <input
+                    type="text"
+                    onChange={(data) => setdata({ ...data, gender: data.target.value })}
+                />
+                Phone:
+                <input
+                    type="text"
+                    onChange={(data) => setdata({ ...data, phone: data.target.value })}
+                />
+                <button type="submit">Signup</button>
+            </form>
+            <h1>The name is: {data.name}</h1>
+            <h1>The rollno is: {data.rollno}</h1>
+            <h1>The city is: {data.city}</h1>
+            <h1>The gender is: {data.gender}</h1>
+            <h1>The phone is: {data.phone}</h1>
+        </>
+    );
+}
+
+export default Form2;
